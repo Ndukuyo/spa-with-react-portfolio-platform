@@ -1,12 +1,10 @@
+
 import { useState } from 'react';
 
 function ProjectForm({ addProject }) {
   const [newProject, setNewProject] = useState({
     title: '',
     description: '',
-    technologies: '',
-    liveUrl: '',
-    githubUrl: '',
     imageUrl: ''
   });
 
@@ -14,17 +12,13 @@ function ProjectForm({ addProject }) {
     e.preventDefault();
     const projectToAdd = {
       ...newProject,
-      technologies: newProject.technologies.split(',').map(tech => tech.trim()),
-      id: Date.now() // Simple ID generation
+
     };
     addProject(projectToAdd);
     // Reset form
     setNewProject({
       title: '',
       description: '',
-      technologies: '',
-      liveUrl: '',
-      githubUrl: '',
       imageUrl: ''
     });
   };
@@ -63,39 +57,6 @@ function ProjectForm({ addProject }) {
         />
       </div>
 
-      <div className="form-group">
-        <label>Technologies (comma separated)</label>
-        <input
-          type="text"
-          name="technologies"
-          value={newProject.technologies}
-          onChange={handleChange}
-          placeholder="React, CSS, JavaScript"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label>Live URL</label>
-        <input
-          type="url"
-          name="liveUrl"
-          value={newProject.liveUrl}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label>GitHub URL</label>
-        <input
-          type="url"
-          name="githubUrl"
-          value={newProject.githubUrl}
-          onChange={handleChange}
-          required
-        />
-      </div>
 
       <div className="form-group">
         <label>Image URL (optional)</label>

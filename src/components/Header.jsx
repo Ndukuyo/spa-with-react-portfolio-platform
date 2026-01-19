@@ -5,8 +5,8 @@ function Header() {
   return (
     <header className="header">
       <div className="container">
-        <h1>Creative Agency Portfolio</h1>
-        <p>Showcasing our best work</p>
+        <h1>M & S Creative Agency </h1>
+        <p> Some of our best work </p>
       </div>
     </header>
   );

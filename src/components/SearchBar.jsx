@@ -12,7 +12,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
         className="search-input"
       />
       <button className="search-button">
-        🔍
+       Search
       </button>
     </div>
   );

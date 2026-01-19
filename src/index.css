@@ -28,7 +28,7 @@ body {
 
 /* Header */
 .header {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: linear-gradient(135deg, #8f839b 0%, #2575fc 100%);
   color: white;
   padding: 3rem 0;
   text-align: center;
@@ -79,7 +79,7 @@ body {
 }
 
 .search-button {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: linear-gradient(135deg, #907fa3 0%, #2575fc 100%);
   color: white;
   border: none;
   padding: 0 25px;
@@ -159,7 +159,7 @@ body {
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: linear-gradient(135deg, #a392b5 0%, #2575fc 100%);
   color: white;
   border: none;
   padding: 14px 35px;
@@ -204,14 +204,14 @@ body {
   border: 1px solid #f0f0f0;
 }
 
-.project-card:hover {
+/* .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .project-image {
   height: 200px;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: linear-gradient(135deg, #c0a4dd 0%, #2575fc 100%);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,3 +1,5 @@
+
+
 import { useState } from 'react';
 import Header from './components/Header.jsx';
 import SearchBar from './components/SearchBar.jsx';
@@ -6,42 +8,31 @@ import ProjectForm from './components/ProjectForm.jsx';
 import './index.css';
 
 function App() {
+
   // Initial projects data
   const initialProjects = [
     {
       id: 1,
-      title: 'E-commerce Website',
-      description: 'A fully responsive online store with shopping cart functionality.',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      title: 'Educational Website',
+      description: 'A fully responsive educational platform with course management.',
       imageUrl: ''
     },
     {
       id: 2,
-      title: 'Weather App',
-      description: 'Real-time weather forecast application with location detection.',
-      technologies: ['JavaScript', 'API', 'CSS'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      title: 'Informational Site',
+      description: 'An informational website with a focus on providing useful resources.',
       imageUrl: ''
     },
     {
       id: 3,
-      title: 'Task Manager',
-      description: 'Drag and drop task management application with team collaboration.',
-      technologies: ['React', 'Firebase', 'Tailwind'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      title: 'News, Blog and Media Platforms',
+      description: 'A news, blog and media platform with content management.',
       imageUrl: ''
     },
     {
       id: 4,
       title: 'Portfolio Website',
       description: 'Personal portfolio with animations and contact form.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
       imageUrl: ''
     }
   ];
@@ -61,10 +52,8 @@ function App() {
   // Filter projects based on search term
   const filteredProjects = projects.filter(project =>
     project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    project.technologies.some(tech => 
-      tech.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    project.description.toLowerCase().includes(searchTerm.toLowerCase()) 
+   
   );
 
   return (
@@ -92,7 +81,7 @@ function App() {
         )}
 
         <h2 className="projects-title">
-          {filteredProjects.length} Project{filteredProjects.length !== 1 ? 's' : ''} Found
+          OUR PROJECTS
         </h2>
 
         <div className="projects-grid">
@@ -109,8 +98,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Creative Agency Portfolio</p>
-        <p>Built with React & Vite</p>
+        <p> &copy; {new Date().getFullYear()} M & S Creative Agency. All rights reserved </p>
+        <p> Call us Today on 0712 345 678 </p>
       </footer>
     </div>
   );
