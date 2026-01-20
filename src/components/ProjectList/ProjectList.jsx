@@ -1,11 +1,10 @@
-function ProjectList() {
 
-// how projects will be displayed
-    const projects = {
-        title: "Project title",
-        description: "Project description",
-        image: ""
-    }
+
+function ProjectList({ displayProjects }) {
+
+    console.log({displayProjects})
+
+
 
   return (
 
@@ -16,12 +15,16 @@ function ProjectList() {
         <button type='submit'> Search </button>
     </div>
 
+    {displayProjects.map((project,index) => ( 
+
     <div className="card">
-        <h2>{ projects.title }</h2>
-        <p>{ projects.description }</p>
-        <img src= { projects.image } alt="project title" />
+    
+        <h2>{ project.title }</h2>
+        <p>{ project.description }</p> 
 
     </div>
+
+    ))}
 
     </>
  

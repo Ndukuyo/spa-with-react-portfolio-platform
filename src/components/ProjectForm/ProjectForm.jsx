@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ProjectForm() {
+function ProjectForm(add) {
 
     const [title,setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -8,12 +8,24 @@ function ProjectForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Project Added:", title, description);
+
+        const currentProjects = {
+            title: title,
+            description: description
+        }
+
+        add(currentProjects); 
+
+        // to clear the form after submission
+        setTitle("");
+        setDescription("");
+        
     }
   return (
 
     <div>
         <h2> Add Project </h2>
-        <form ClassName="project-form" onSubmit={handleSubmit}>
+        <form className="project-form" onSubmit={handleSubmit}>
             <label id='title' htmlFor='title'> Title </label> <br />
             <input type="text" name= "title"placeholder='Project Title' value={title} onChange={(event)=> setTitle(event.target.value)}/> <br />
             <label htmlFor="description"> Description </label> <br />

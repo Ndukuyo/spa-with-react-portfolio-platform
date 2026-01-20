@@ -10,15 +10,27 @@ function App() {
   const [count, setCount] = useState(0)
 
 // Projects on the page
-  const currentProjects = [
-
+  const availableProjects = [
     {
-      id: 1,
       title: "Informational Sites",
       description: "An informational site focused on providing relevant content to your audience.",
-      image: ""
+      id: 1
+    }, 
+
+    {
+      title: "Website Redesign",
+      description: "A complete overhaul of an existing website to improve user experience and aesthetics.",
+      id: 2
     }
   ]
+
+  // the state that stores the projects
+  const [projects, setProjects] = useState(availableProjects);
+
+  // function to add projects through the form
+  function addProjects(newProject) {
+    setProjects([...projects, newProject])
+  }
 
   return (
     <>
@@ -30,11 +42,11 @@ function App() {
       <main className="main-container">
 
         <div className="project-form">
-          <ProjectForm />
+          <ProjectForm add={addProjects}/>
         </div>
 
         <div className="project-list">
-          <ProjectList Projects={currentProjects} />  {/* Passing currentProjects as props */}
+          <ProjectList displayProjects={projects} />  {/* Passing currentProjects as props */}
           
         </div>
 
