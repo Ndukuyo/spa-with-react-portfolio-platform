@@ -1,108 +1,53 @@
-
-
-import { useState } from 'react';
-import Header from './components/Header.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import ProjectCard from './components/ProjectCard.jsx';
-import ProjectForm from './components/ProjectForm.jsx';
-import './index.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Header from './components/Header.jsx'
+import ProjectForm from './components/ProjectForm/ProjectForm.jsx'
+import ProjectList from './components/ProjectList/ProjectList.jsx'
 
 function App() {
+  const [count, setCount] = useState(0)
 
-  // Initial projects data
-  const initialProjects = [
+// Projects on the page
+  const currentProjects = [
+
     {
       id: 1,
-      title: 'Educational Website',
-      description: 'A fully responsive educational platform with course management.',
-      imageUrl: ''
-    },
-    {
-      id: 2,
-      title: 'Informational Site',
-      description: 'An informational website with a focus on providing useful resources.',
-      imageUrl: ''
-    },
-    {
-      id: 3,
-      title: 'News, Blog and Media Platforms',
-      description: 'A news, blog and media platform with content management.',
-      imageUrl: ''
-    },
-    {
-      id: 4,
-      title: 'Portfolio Website',
-      description: 'Personal portfolio with animations and contact form.',
-      imageUrl: ''
+      title: "Informational Sites",
+      description: "An informational site focused on providing relevant content to your audience.",
+      image: ""
     }
-  ];
-
-  // State for projects and search
-  const [projects, setProjects] = useState(initialProjects);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showForm, setShowForm] = useState(false);
-
-  // Function to add new project
-  const addProject = (project) => {
-    setProjects([project, ...projects]);
-    setShowForm(false);
-    alert('Project added successfully!');
-  };
-
-  // Filter projects based on search term
-  const filteredProjects = projects.filter(project =>
-    project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    project.description.toLowerCase().includes(searchTerm.toLowerCase()) 
-   
-  );
+  ]
 
   return (
-    <div className="App">
-      <Header />
-      
-      <main className="container">
-        <div className="controls">
-          <SearchBar 
-            searchTerm={searchTerm} 
-            setSearchTerm={setSearchTerm} 
-          />
-          <button 
-            className="toggle-form-btn"
-            onClick={() => setShowForm(!showForm)}
-          >
-            {showForm ? 'Hide Form' : 'Add New Project'}
-          </button>
+    <>
+    <div className="app">
+      <div className="header">
+        <Header />
+      </div>
+
+      <main className="main-container">
+
+        <div className="project-form">
+          <ProjectForm />
         </div>
 
-        {showForm && (
-          <div className="form-container">
-            <ProjectForm addProject={addProject} />
-          </div>
-        )}
-
-        <h2 className="projects-title">
-          OUR PROJECTS
-        </h2>
-
-        <div className="projects-grid">
-          {filteredProjects.length > 0 ? (
-            filteredProjects.map(project => (
-              <ProjectCard key={project.id} project={project} />
-            ))
-          ) : (
-            <div className="no-projects">
-              <p>No projects found. Try a different search or add a new project!</p>
-            </div>
-          )}
+        <div className="project-list">
+          <ProjectList Projects={currentProjects} />  {/* Passing currentProjects as props */}
+          
         </div>
+
       </main>
-
-      <footer className="footer">
-        <p> &copy; {new Date().getFullYear()} M & S Creative Agency. All rights reserved </p>
-        <p> Call us Today on 0712 345 678 </p>
-      </footer>
+      
+      <div className="foter">
+        <h4> &copy; M & S Creative Solutions. All rights reserved </h4>
+        <p>Call us Today at:  0712 345 678</p>
+      </div>
     </div>
-  );
+
+    </>
+  )
 }
 
-export default App;
+export default App
